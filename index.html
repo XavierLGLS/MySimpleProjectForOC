@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Random title for random stats</title>
+</head>
+
+<body>
+    <div>
+        <b>Pour un jeune homme né le 11 avril 1995 en France:</b>
+    </div>
+</body>
+<script>
+    var requestUrl = 'http://api.population.io:80/1.0/mortality-distribution/France/male/23y11m/today/';
+    var request = new XMLHttpRequest();
+    request.open('GET', requestUrl);
+    request.responseType = 'json';
+    request.send();
+    var sum = 100;
+
+    request.onload = function () {
+        var response = request.response.mortality_distribution;
+        for (var i = 0; i < response.length; i++) {
+            console.log(response[i])
+            sum -= response[i].mortality_percent;
+            addDiv(response[i].age, sum);
+        }
+    }
+
+    function addDiv(age, sum) {
+        var div = document.createElement('div');
+        div.innerHTML = "Probabilité de vivre jusqu'à " + age + " ans: " + Math.round(100 * sum) / 100.0 + "%";
+        div.style.margin = "10px";
+        document.body.appendChild(div);
+    }
+</script>
+
+</html>
