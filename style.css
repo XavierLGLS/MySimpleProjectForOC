@@ -1,0 +1,25 @@
+div{
+    margin: 10px;
+}
+
+.title{
+    padding: 10px;
+    margin: 5px;
+    background-color: darkgray;
+}
+
+.elt{
+    padding: 5px;
+    margin: 3px;
+    border-radius: 2px;
+    cursor: pointer;
+    background-color: lightsteelblue;
+    transition: 0.5s;
+}
+
+.elt:hover{
+    border-bottom: 2px solid grey;
+    opacity: 0.85;
+    padding: 20px;
+    color: red;
+}

@@ -4,10 +4,11 @@
 <head>
     <meta charset="utf-8">
     <title>Random title for random stats</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div>
+    <div class="title">
         <b>Pour un jeune homme né le 11 avril 1995 en France:</b>
     </div>
 </body>
@@ -31,7 +32,7 @@
     function addDiv(age, sum) {
         var div = document.createElement('div');
         div.innerHTML = "Probabilité de vivre jusqu'à " + age + " ans: " + Math.round(100 * sum) / 100.0 + "%";
-        div.style.margin = "10px";
+        div.classList.add("elt");
         document.body.appendChild(div);
     }
 </script>
