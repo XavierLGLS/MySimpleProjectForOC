@@ -8,6 +8,7 @@
 </head>
 
 <body>
+    <audio id="audio" src="http://www.soundjay.com/button/beep-07.wav" autoplay="false"></audio>
     <div class="title">
         <b>Pour un jeune homme né le 11 avril 1995 en France:</b>
     </div>
@@ -33,6 +34,10 @@
         var div = document.createElement('div');
         div.innerHTML = "Probabilité de vivre jusqu'à " + age + " ans: " + Math.round(100 * sum) / 100.0 + "%";
         div.classList.add("elt");
+        div.addEventListener("click", function () {
+            var sound = document.getElementById("audio");
+            sound.play();
+        }, true);
         document.body.appendChild(div);
     }
 </script>
